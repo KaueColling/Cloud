@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 @Entity
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Task {
@@ -18,7 +17,8 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "tarefa")
+    @OneToMany(mappedBy = "task",cascade = CascadeType.ALL)
     List<File> arquivos;
 
+    private String nome;
 }

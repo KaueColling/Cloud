@@ -24,7 +24,7 @@ public class File {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Task tarefa;
+    private Task task;
 
 
 }
