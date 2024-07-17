@@ -32,15 +32,6 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public void deletarUsuario(Integer id) {
-        if (usuarioRepository.existsById(id)) {
-            usuarioRepository.deleteById(id);
-            if (usuarioRepository.existsById(id)) {
-                throw new RuntimeException("Não possivel deletar usuario de id " + id + ".");
-            }
-        } else {
-            throw new RuntimeException("Usuario nao encontrado");
-        }
-    }
+
 
 }

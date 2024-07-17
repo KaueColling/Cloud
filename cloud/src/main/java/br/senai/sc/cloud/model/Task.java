@@ -1,5 +1,7 @@
 package br.senai.sc.cloud.model;
 
+import br.senai.sc.cloud.controller.dto.file.FileRequestGetDto;
+import br.senai.sc.cloud.controller.dto.task.TaskRequestGetDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +20,15 @@ public class Task {
     private Long id;
 
     @OneToMany(mappedBy = "task",cascade = CascadeType.ALL)
-    List<File> arquivos;
+    List<File> files;
 
+    @Column(nullable = false)
+    @NonNull
     private String nome;
+
+    public TaskRequestGetDto toGetDTO() {
+        List<FileRequestGetDto> arquivos = new ArrayList<>();
+        return new TaskRequestGetDto(this.getNome(), files);
+    }
+
 }

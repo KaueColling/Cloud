@@ -6,7 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.UUID;
 
-public record FileRequestPostDto(UUID tarefaID, List<MultipartFile> files) {
-
+public record FileRequestPostDto(Long tarefaID, List<MultipartFile> files) {
 
 }

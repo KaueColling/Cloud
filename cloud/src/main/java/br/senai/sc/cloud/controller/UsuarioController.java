@@ -45,12 +45,6 @@ public class UsuarioController {
     }
 
 
-    @DeleteMapping("/{id}")
-    // Não pode ter body.
-    // Ele serve para Deletar ou Desabilitar (nao sera deletado do banco, só o usuario nao podera ver/ter acesso).
-    public String endPointDelete(@PathVariable int id) {
-        usuarioService.deletarUsuario(id);
-        return "Usuario de id " + id + " deletado com sucesso";
-    }
+
 
 }

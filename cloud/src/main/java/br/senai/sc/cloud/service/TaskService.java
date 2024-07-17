@@ -9,23 +9,41 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Data
 public class TaskService {
+
 
     @NonNull
     private TaskRepository taskRepository;
 
     public TaskRequestGetDto buscarTask(Long tarefaId) {
         Task task = taskRepository.findById(tarefaId).get();
-        return new TaskRequestGetDto(task.getNome());
+        return new TaskRequestGetDto(task.getNome(), task.getFiles());
+    }
+
+    public List<TaskRequestGetDto> buscarTarefas() {
+        List<TaskRequestGetDto> tarefas = new ArrayList<>();
+        taskRepository.findAll().forEach(tarefa -> {
+            tarefas.add(tarefa.toGetDTO());
+        });
+        return tarefas;
     }
 
     public void adicionarTask(TaskRequestPostDto taskPostDto) {
         Task task = new Task();
         task.setNome(taskPostDto.nome());
         taskRepository.save(task);
+    }
+
+    public void deletarTask(Long tarefaId) {
+        if (taskRepository.existsById(tarefaId)) {
+            taskRepository.deleteById(tarefaId);
+        }
     }
 
 }
