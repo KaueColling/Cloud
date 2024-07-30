@@ -6,8 +6,10 @@ import br.senai.sc.cloud.repository.TaskRepository;
 import br.senai.sc.cloud.service.TaskService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 

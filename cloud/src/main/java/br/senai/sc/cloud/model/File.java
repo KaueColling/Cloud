@@ -1,10 +1,8 @@
 package br.senai.sc.cloud.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
@@ -22,13 +20,15 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String file;
+//    @Column(nullable = false)
+//    private String file;
 
     private Date date;
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @JsonIgnore
+    @ToString.Exclude
     private Task task;
 
     private String reference;

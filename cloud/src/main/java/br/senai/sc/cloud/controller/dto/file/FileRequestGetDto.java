@@ -1,4 +1,6 @@
 package br.senai.sc.cloud.controller.dto.file;
 
-public class FileRequestGetDto {
+public record FileRequestGetDto(
+        String imageLink
+) {
 }
