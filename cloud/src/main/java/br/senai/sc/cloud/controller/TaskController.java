@@ -1,3 +1,8 @@
+/**
+ * Controlador responsável por gerenciar arquivos no sistema.
+ *
+ * @author Kaue Correa
+ */
 package br.senai.sc.cloud.controller;
 
 import br.senai.sc.cloud.controller.dto.task.TaskRequestGetDto;
@@ -15,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @RequestMapping("/task")
 public class TaskController {
 
