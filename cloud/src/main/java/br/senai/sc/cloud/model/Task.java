@@ -19,15 +19,13 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "task",cascade = CascadeType.ALL)
-    List<File> files;
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
+    List<File> files = new ArrayList<>();
 
     @Column(nullable = false)
-    @NonNull
     private String nomeCriador;
 
     @Column(nullable = false)
-    @NonNull
     private String nomeTask;
 
     @Column(nullable = false)
@@ -35,7 +33,7 @@ public class Task {
 
     public TaskRequestGetDto toGetDTO() {
         List<FileRequestGetDto> arquivos = new ArrayList<>();
-        return new TaskRequestGetDto(this.getNomeTask(), getNomeCriador(), this.getDescricao(), files);
+        return new TaskRequestGetDto(this.getNomeCriador(), this.getNomeTask(), this.getDescricao(), files);
     }
 
 }

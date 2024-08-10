@@ -44,6 +44,7 @@ public class TaskService {
         task.setNomeCriador(taskPostDto.nomeCriador());
         task.setNomeTask(taskPostDto.nomeTask());
         task.setDescricao(taskPostDto.descricao());
+        System.out.println(task);
         taskRepository.save(task);
     }
 
