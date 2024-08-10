@@ -28,7 +28,7 @@ public class TaskService {
 
     public TaskRequestGetDto buscarTask(Long tarefaId) {
         Task task = taskRepository.findById(tarefaId).get();
-        return new TaskRequestGetDto(task.getNome(), task.getFiles());
+        return new TaskRequestGetDto(task.getNomeCriador(), task.getNomeTask(), task.getDescricao(), task.getFiles());
     }
 
     public List<TaskRequestGetDto> buscarTarefas() {
@@ -41,7 +41,9 @@ public class TaskService {
 
     public void adicionarTask(TaskRequestPostDto taskPostDto) {
         Task task = new Task();
-        task.setNome(taskPostDto.nome());
+        task.setNomeCriador(taskPostDto.nomeCriador());
+        task.setNomeTask(taskPostDto.nomeTask());
+        task.setDescricao(taskPostDto.descricao());
         taskRepository.save(task);
     }
 

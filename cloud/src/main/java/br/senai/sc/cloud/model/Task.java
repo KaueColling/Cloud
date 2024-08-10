@@ -24,11 +24,18 @@ public class Task {
 
     @Column(nullable = false)
     @NonNull
-    private String nome;
+    private String nomeCriador;
+
+    @Column(nullable = false)
+    @NonNull
+    private String nomeTask;
+
+    @Column(nullable = false)
+    private String descricao;
 
     public TaskRequestGetDto toGetDTO() {
         List<FileRequestGetDto> arquivos = new ArrayList<>();
-        return new TaskRequestGetDto(this.getNome(), files);
+        return new TaskRequestGetDto(this.getNomeTask(), getNomeCriador(), this.getDescricao(), files);
     }
 
 }

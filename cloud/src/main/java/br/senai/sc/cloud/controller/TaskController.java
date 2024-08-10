@@ -30,7 +30,7 @@ public class TaskController {
     @PostMapping
     public String criarTask(@RequestBody TaskRequestPostDto taskPostDTO) {
         taskService.adicionarTask(taskPostDTO);
-        return "Task de nome " + taskPostDTO.nome() + " foi criada.";
+        return "Task de nome " + taskPostDTO.nomeTask() + " foi criada.";
     }
 
     @GetMapping("/{taskId}")
