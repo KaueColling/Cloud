@@ -32,10 +32,6 @@ public class FileAwsController {
 
     @GetMapping("/{idFile}")
     public ResponseEntity<String> buscarFile(@PathVariable Long idFile) {
-        try {
-            return new ResponseEntity<>(fileService.buscarFilePorID(idFile), HttpStatusCode.valueOf(200));
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatusCode.valueOf(400));
-        }
+        return new ResponseEntity<>(fileService.buscarFilePorID(idFile), HttpStatusCode.valueOf(200));
     }
 }

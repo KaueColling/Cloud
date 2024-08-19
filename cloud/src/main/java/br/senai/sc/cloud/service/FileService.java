@@ -88,10 +88,6 @@ public class FileService implements FileServiceInt {
         }
     }
 
-    /**
-     * Busca um arquivo no repositório de arquivos e
-     * retorna uma URL assinada para acesso ao arquivo no AWS S3.
-     */
     public String buscarFilePorID(Long id) {
 
         File file = fileRepository.findById(id).orElseThrow(() -> new RuntimeException("File não encontrado"));

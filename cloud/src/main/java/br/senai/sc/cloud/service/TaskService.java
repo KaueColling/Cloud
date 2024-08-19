@@ -26,9 +26,9 @@ public class TaskService {
     @NonNull
     private TaskRepository taskRepository;
 
-    public TaskRequestGetDto buscarTask(Long tarefaId) {
-        Task task = taskRepository.findById(tarefaId).get();
-        return new TaskRequestGetDto(task.getNomeCriador(), task.getNomeTask(), task.getDescricao(), task.getFiles());
+    public TaskRequestGetDto buscarTask(Long taskId) {
+        Task task = taskRepository.findById(taskId).get();
+        return new TaskRequestGetDto(task.getId(), task.getNomeCriador(), task.getNomeTask(), task.getDescricao(), task.getFiles());
     }
 
     public List<TaskRequestGetDto> buscarTarefas() {

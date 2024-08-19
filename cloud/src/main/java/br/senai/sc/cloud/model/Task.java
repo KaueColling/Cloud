@@ -33,7 +33,7 @@ public class Task {
 
     public TaskRequestGetDto toGetDTO() {
         List<FileRequestGetDto> arquivos = new ArrayList<>();
-        return new TaskRequestGetDto(this.getNomeCriador(), this.getNomeTask(), this.getDescricao(), files);
+        return new TaskRequestGetDto(this.getId(),this.getNomeCriador(), this.getNomeTask(), this.getDescricao(), files);
     }
 
 }

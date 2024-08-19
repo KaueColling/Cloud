@@ -6,6 +6,11 @@ import lombok.Setter;
 import java.util.List;
 
 
-public record TaskRequestGetDto(String nomeCriador, String nomeTask, String descricao, List<File> files) {
-
+public record TaskRequestGetDto(
+        Long id,
+        String nomeCriador,
+        String nomeTask,
+        String descricao,
+        List<File> files
+) {
 }
